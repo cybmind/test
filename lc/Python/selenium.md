@@ -1,0 +1,32 @@
+获取浏览器
+```
+driver = webdriver.Chrome()
+```
+前往某个网址
+```
+driver.get("https://juejin.im/")
+```
+窗口最大化
+```
+ driver.maximize_window()
+```
+查找某个元素
+```
+username = driver.find_element_by_css_selector("path" > input")
+```
+元素设置内容
+```
+ username.send_keys("13320817857")
+```
+点击元素
+```
+driver.find_element_by_css_selector("").click()
+```
+显式延时，会等元素加载完成
+```
+WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR,"path")))
+```
+隐式延时，设置所有元素的延时时间，如果没有加载出来就抛出异常
+```
+driver.implicitly_wait(20)
+```

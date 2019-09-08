@@ -1,0 +1,27 @@
+- Linux常用操作
+	- 清除缓存：`echo 1 > /proc/sys/vm/drop_caches`
+	- 杀死进程：kill -9 `ps -ef |grep tomcat | awk '{print $2,$3}'`
+	- Centos 7 查看防火墙状态：`firewall-cmd --state`
+	- Centos 7 一次性关闭防火墙：`systemctl stop firewalld.service`
+	- yum清除缓存：yum makecache
+	- 查看版本：cat /etc/redhat-release
+	- 查看可以安装的软件版本(比如mysql)：yum list | grep mysql
+	- 同时安装多个软件（比如mysql）：yum install -y mysql-server mysql mysql-devel
+	- 查看软件版本（比如mysql）：rpm -qi mysql-server
+	- 查看已经安装的软件（比如mysql）：rpm -qa | grep mysql
+	- 卸载软件：rpm -e mysql　　// 普通删除模式
+	- 卸载软件：rpm -e --nodeps mysql　　// 强力删除模式，如果使用上面命令删除时，提示有依赖的其它文件，则用该命令可以对其进行强力删除
+	- 检查软件是否是开机启动：`chkconfig --list | grep mysqld`
+	- 设置软件开机启动：`chkconfig mysqld on`
+	- 在一行前新增一行数据： `sed -in-place '1i nihaxxxoya' test.sh`
+	- 在一行后新增一行数据： `sed -in-place '1a nihaxxxoya' test.sh`
+	-  获取当前登录的用户 `echo $(whoami)`
+	- 查看公网`ipcurl cip.cc`
+	- 设置免密登陆服务器 `ssh-copy-id -i id_rsa.pub root@192.168.136.211`
+	- `curl localhost:9999/api/daizhige/article -X POST -H "Content-Type:application/json" -d '"title":"comewords","content":"articleContent"'`
+	- `tcpdump -A -s 0 'tcp port 9200 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0) and host 110.184.155.52' -vv`
+	- 将内容复制到剪贴板上面: `pbcopy <  filenName`
+	- 生成ssh密钥：`ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
+	-  `cat /root/.bash_history` or `history` 查看命令行执行历史记录 https://blog.csdn.net/qingchenldl/article/details/79694061
+	- 修改所属组和用户：chown -R www:www [file]
+	- 给其他用户增加权限：setfacl -m u:xman:rx

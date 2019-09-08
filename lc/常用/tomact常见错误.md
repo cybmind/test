@@ -1,0 +1,4 @@
+- Tomcat常见问题汇总
+	- 部署项目时内存溢出的问题。
+		- 原因：在启动java web项目时，有太多的类文件需要加载，但是tomcat默认的非堆区域设置太小，所以导致非堆区域内存溢出。
+		- 解决方案：修改tomcat启动时的非堆区域大小，在cygwin=false上面添加 `JAVA_OPTS="-server -XX:PermSize=256m -XX:MaxPermSize=512m"`
